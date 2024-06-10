@@ -1,0 +1,184 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+/*--- reddit mono ---*/
+@import url("https://fonts.googleapis.com/css2?family=Reddit+Mono:wght@200..900&display=swap");
+
+/* Inter */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --success: #7bb685;
+    --info: #4ea4dd;
+    --warning: #f6e9b2;
+    --alert: #df3737;
+    --primary: #f2a811;
+    --primary-dark: #eca10a;
+    --primary-light: #f8af1e;
+    --gray-900: #45474b;
+    --gray-800: #4e4f52;
+    --gray-300: #495e57;
+    --gray-200: #e8e8e8;
+    --gray-100: #f5f7f8;
+    --white: #fff;
+    --black: #000;
+  }
+
+  * {
+    /* border: solid 1px red; */
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    line-height: 1.7;
+    width: 100%;
+
+    font-family: "Inter", sans-serif;
+    @apply bg-warning text-gray-900;
+  }
+
+  li {
+    list-style: none;
+  }
+
+  p {
+    @apply text-sm;
+  }
+
+  a {
+    @apply cursor-pointer;
+  }
+
+  .btn {
+    @apply rounded-sm px-8 py-2;
+  }
+
+  .more {
+    animation: hideAnimation 0.8s;
+    transition: animation 0.8s ease-in-out;
+  }
+
+  .h1--heading {
+    @apply text-gray-900 text-3xl;
+  }
+}
+
+@layer components {
+  .nav {
+    /* box-shadow: 0 0 30px 1px var(--dark-gray); */
+  }
+
+  .label {
+    @apply rounded-md px-1 h-4 flex justify-center items-center text-[10px] font-semibold;
+    text-transform: capitalize;
+  }
+
+  .label--status {
+    @apply bg-primary text-gray-900;
+  }
+
+  .label--date {
+    @apply bg-primary text-gray-100;
+  }
+
+  .progress {
+    @apply rounded-md h-4;
+  }
+
+  .input--task {
+    @apply text-sm text-primary w-full;
+  }
+
+  .progress--bar {
+    /* border: 3px solid rgb(255, 9, 9); */
+    @apply flex w-full;
+  }
+
+  .progress--bar-container {
+    /* background-color: var(--dark);
+    background-color: #8882e24d; */
+    background-color: var(--gray-300);
+    height: 8px;
+    @apply rounded-xl flex items-center w-full flex-1;
+  }
+
+  .progress--bar-container-timer {
+    background-color: #00000000;
+    height: 20px;
+    @apply rounded-xl flex items-center;
+  }
+
+  .progress--bar-barCompleted {
+    /* background-color: #181d58; */
+    @apply rounded-l-xl;
+    height: 6px;
+
+    /* width: 80%; */
+  }
+
+  .progress--bar-label {
+    font-size: 10px;
+    margin: 0 auto;
+    color: var(--gray-300);
+    @apply flex justify-center text-white font-semibold;
+  }
+
+  .time--text {
+    letter-spacing: 2px;
+    font-family: "Google Sans Mono";
+    font-weight: 900;
+    color: var(--alert);
+  }
+}
+
+@layer utilities {
+  .transition-200 {
+    @apply transition-all duration-200;
+  }
+
+  .shadow-dark {
+    box-shadow: 0 0 30px 1px var(--gray-900);
+  }
+
+  .strikethrough {
+    text-decoration: line-through;
+  }
+
+  .shadow-light {
+    box-shadow: 0px 2px 2px 2px #e6e6e6;
+  }
+
+  .shadow-thick {
+    box-shadow:
+      rgba(9, 30, 66, 0.25) 0px 4px 8px -2px,
+      rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+  }
+
+  .shadow-thin {
+    box-shadow:
+      rgba(9, 30, 66, 0.25) 0px 1px 1px,
+      rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+  }
+
+  .gradient-dark {
+    background: linear-gradient(red, green);
+  }
+}
+
+@keyframes hideAnimation {
+  from {
+    /* display: flex; */
+    background-color: var(--gray-900);
+  }
+
+  to {
+    background-color: var(--primary);
+    @apply hidden;
+  }
+}
