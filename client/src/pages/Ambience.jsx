@@ -3,6 +3,8 @@ import { useAudio } from "../hooks/Sound/useAudio";
 
 export default function Ambience() {
   const { audioList } = useAudio();
+  console.log("AUDIOLIST:", audioList);
+
   return (
     <div className="bg-white h-full w-full px-8 py-8 ">
       <div className="grid grid-cols-3 place-items-center h-full max-w-screen-md mx-auto ">
