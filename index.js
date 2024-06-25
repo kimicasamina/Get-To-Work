@@ -1,6 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
+import path from "path";
 import bodyParser from "body-parser";
 import cookieParser from "cookie-parser";
 import mongoose from "mongoose";
@@ -21,15 +22,14 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin:
+      process.env.NODE_ENV === "production"
+        ? process.env.CLIENT_URL
+        : "http://localhost:5173",
     credentials: true,
-    secured: false,
   })
 );
 
-app.get("/api", (req, res) => {
-  res.send("Server is ready...");
-});
 app.use("/api/projects", projectRoute);
 app.use("/api/tasks", taskRoute);
 app.use("/api/time", timeRoute);
@@ -37,6 +37,18 @@ app.use("/api/users", userRoute);
 app.use("/api/auth", authRoute);
 // app.use(ErrorHandler);
 // app.use(ErrorHandler);
+
+if (process.env.NODE_ENV === "production") {
+  const __dirname = path.resolve();
+
+  app.use(express.static(path.join(__dirname, "client/dist")));
+
+  app.get("*", (req, res) =>
+    res.sendFile(path.resolve(__dirname, "client", "dist", "index.html"))
+  );
+} else {
+  app.get("/", (req, res) => res.send("Server is ready..."));
+}
 
 app.listen(process.env.PORT || 4000, () => {
   console.log("SERVER STARTS AT:", process.env.PORT);
