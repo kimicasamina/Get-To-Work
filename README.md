@@ -5,7 +5,6 @@ Website: https://gettowork.onrender.com/
 Get To Work is an all-in-one project management and productivity tool designed to streamline task management, and improve overall productivity. 
 
 ## KEY FEATURES 
-### Enhance Task Management
 - Dashboard - Provides a central overview of ongoing projects, upcoming deadlines, and a timesheet of daily work hours.
 - Project Management - Provide tools for managing projects, adding tasks, setting deadlines, and tracking progress.
 - Task Management - Features include displaying a task list, adding, deleting, and completing tasks.
