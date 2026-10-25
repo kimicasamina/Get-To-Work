@@ -16,7 +16,7 @@ COPY . .
 
 # Copy the compiled production build from Step 1 into your backend scope
 # This assumes your index.js looks for '../client/build' or './client/build'
-COPY --from=frontend-builder /client/build ./client/build
+COPY --from=frontend-builder /client/dist ./client/dist
 
 EXPOSE 4000
 CMD ["node", "index.js"]
