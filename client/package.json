@@ -2,6 +2,7 @@
   "name": "client",
   "private": true,
   "version": "0.0.0",
+  "homepage": "get-to-work",
   "type": "module",
   "scripts": {
     "dev": "vite",
