@@ -30,6 +30,9 @@ app.use(
   })
 );
 
+app.use("/api/health-check", (req, res) => 
+  res.status(200).json({message: "Hellooooo!"})
+)
 app.use("/api/projects", projectRoute);
 app.use("/api/tasks", taskRoute);
 app.use("/api/time", timeRoute);
